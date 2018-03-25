@@ -1,0 +1,24 @@
+<div class="form-group label-floating {{empty}} {{::addClass}} col-sm-{{::width}} ">
+	  <input id="select{{::$id}}" type="checkbox" class="check-select"/>
+	  <div class="input-group" style="width: 100%">
+	      <span  class="input-group-addon"><i class="material-icons" style="margin-top: -0.15em;">{{::iconBefore}}</i></span>
+		  <i for="select{{::$id}}" class="material-icons icon-select-drop" >arrow_drop_down</i>
+		  <label ng-if="::label" class="control-label">{{::label}}</label>
+		  <textarea class="form-control col-sm-12"  rows="1"></textarea>
+		  <span class="help-block text-danger animate" ng-if="showErro">{{msgInput}}</span>
+	  </div>
+	  <ul class=" lista-select shadow-4 animate">
+			<li  class="li-filtro-select">
+				<ui-button type="button" add-class="btn-sm btn-close-select" ng-click="closeSelect();" icon="clear"></ui-button>
+				<ui-input placeholder="{{::msgFilter}}" add-class="{{::addClass}}" value="fieldFiltro"
+				ng-model-options="{updateOn: 'default blur', debounce: {default: 500, blur:0}}"></ui-input>
+			</li>   
+			<div class="resultado-lista-select">
+				<li ng-click="onClickLi(item);" class="animate" id="liSelect{{::item.id}}" 
+					ng-repeat="item in list  | filter:fieldFiltro" ng-init="finishRenderList();">
+					{{::item[field]}}
+					<i  class="material-icons">check</i>
+				</li>
+			</div>
+       </ul>
+</div>

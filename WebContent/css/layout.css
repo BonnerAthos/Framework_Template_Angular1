@@ -1,0 +1,182 @@
+@CHARSET "UTF-8";
+.btn-carregando{background-image: url("../img/loading.gif"); min-width:18em; padding-top: 1.5em;cursor:default; background-position: center center; margin:0px auto;  background-repeat: no-repeat;}
+/******************** Estilo para fazer algumas modificações gerais. ********************************************************/
+/* larguras para ajudar nas construções da tela */
+.col1 {width: 1%;}; .col2 {width: 2%;}; .col4 {width: 4%;}; .col5 {width: 5%;};
+.col10 {width: 10%;};
+.col15 {width: 15%;};
+.col20 {width: 20%;};
+.col25 {width: 25%;};
+.col30 {width: 30%;};
+.col35 {width: 35%;};
+.col40 {width: 40%;};
+.col45 {width: 45%;};
+.col50 {width: 50%;};
+.col55 {width: 55%;};
+.col60 {width: 60%;};
+.col65 {width: 65%;};
+.col70 {width: 70%;};
+.col75 {width: 75%;};
+.col80 {width: 80%;};
+.col85 {width: 85%;};
+.col90 {width: 90%;};
+.col95 {width: 95%;};
+.col100 {width: 100%;};
+
+.animacao {
+	  -webkit-transition: 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all ;
+	    -moz-transition: 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all ;
+	    -ms-transition: 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all ;
+	    -o-transition: 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all ;
+	    -ms-transition: 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all ;
+	    transition: 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all ;
+	}
+	
+		.animacao.ng-move, 
+		.animacao.ng-enter,
+		.animacao.ng-leave { 
+		} 
+	
+	.animacao.ng-leave.ng-leave-active,
+	.animacao.ng-move,
+	.animacao.ng-enter {
+ 		  	position: relative;
+	    /*  		    position: relative;  */
+	  -webkit-transform: rotateX(-180deg) translatez(40px);
+	    -moz-transform: rotateX(-180deg) translatez(40px);
+	    -ms-transform: rotateX(-180deg) translatez(40px);
+	    -o-transform: rotateX(-180deg) translatez(40px);
+	    -ms-transform: rotateX(-180deg) translatez(40px);
+	    transform: rotateX(-180deg) translatez(40px);
+	    opacity: 0;
+		
+	}
+	
+	.animacao.ng-leave,
+	.animacao.ng-move.ng-move-active,
+	.animacao.ng-enter.ng-enter-active {
+	    position: relative;  
+	   -webkit-transform: rotateX(0deg) translatez(40px);
+	    -moz-transform: rotateX(0deg) translatez(40px);
+	    -ms-transform: rotateX(0deg) translatez(40px);
+	    -o-transform: rotateX(0deg) translatez(40px);
+	    -ms-transform: rotateX(0deg) translatez(40px);
+	    transform: rotateX(0deg) translatez(40px);
+	    opacity: 1;
+	}
+
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: #f4f8fd;
+}
+.table-hover > tbody > tr:hover {
+  background-color: #d0e4fe;
+  color:black;
+}
+
+.bg-info {
+  background-color: #0088cc;
+  border-color: #080808;
+  color:#fff;
+}
+
+.bg-black {
+  background-color: #222222;
+  border-color: #080808;
+  color:#fff;
+}
+.bg-black tr .ativo{
+  background-color: #0088cc;
+  border-color: #080808;
+  color:#fff;
+}
+
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  color: white;
+  text-decoration: none;
+  background-color: #0088cc;
+}
+
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+  position: relative;
+  min-height: 1px;
+  padding-right: 3px;
+  padding-left: 3px;
+}
+
+.texto-ativo{
+	color:#fff;
+}
+
+.navbar {
+	min-height: 40px;
+  margin-bottom: 18px;
+}
+
+.navbar-brand {
+  height: 40px;
+  padding: 15px 15px;
+}
+
+h1,h2,h3,h4{
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.glyphicon{
+	margin: 0px 3px 0px 3px;
+}
+
+.page-header {
+  padding-bottom: 0px;
+  margin: 5px 0 20px;
+}
+.form-group {
+  margin-bottom: 5px;
+}
+
+.pagination{
+	margin: 0px;
+}
+
+.pagination > li > a,
+.pagination > li > span {
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.popover
+	max-width: 600px;
+}
+
+.modal-lg {
+  width: 95%;
+}
+
+ .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, 
+ .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td {
+	padding: 5px;
+}
+
+.panel-body {
+  padding: 5px;
+}
+
+.panel {
+  margin-bottom: 5px;
+}
+
+.navbar {
+	margin-bottom: 5px;
+}
+.container-fluid {
+	padding-right: 8px;
+    padding-left: 8px
+}
+.panel-body {
+	padding-left: 0px;
+	padding-right: 0px;
+}

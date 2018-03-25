@@ -1,0 +1,18 @@
+<div class="container-fluid">
+	<form ui-form>
+		<ui-input value="usuarioEdit.nome" label="Nome"  valid-min="2" not-empty="true"></ui-input>
+		<ui-input value="usuarioEdit.sobreNome" label="Sobre Nome"  valid-min="2"></ui-input>
+		<ui-input value="usuarioEdit.login" label="Login"  valid-min="2" not-empty="true"></ui-input>
+		<ui-input value="usuarioEdit.email" label="E-Mail"  valid-email="true" not-empty="true"></ui-input>
+		<ui-input value="usuarioEdit.senha" type="password" compare="senhaConfirme" compare-label="Confirmar Senha"  label="Senha" not-empty="true"></ui-input>
+		<ui-input value="usuarioEdit.senhaConfirme" type="password" compare-label="Senha" compare="usuarioEdit.senha" label="Confirmar Senha" not-empty="true"></ui-input>
+		<ui-input value="usuarioEdit.dataNascimento" label="Dt. Nascimento" mask-date="true" date-picker="true" valid-date="true" no-empty="true"></ui-input>
+		<ui-toggle value=usuarioEdit.ativo value-true="true" value-false="false" label-true="Ativo" label-false="Inativo" ></ui-toggle>
+<!-- 		Botões -->
+		<div class="text-right">
+			<ui-button type="button" icon="save" valid-form="true" show-validation="true" ng-click="salvarUsuario();">Salvar</ui-button>
+			<ui-button type="button" icon="clear_all" ng-click="limparFormUsuario();">Limpar</ui-button>
+			<ui-button type="button" icon="clear" ng-click="fecharTelaCadUsuario();">Cancelar</ui-button>
+		</div>
+	</form>
+</div>

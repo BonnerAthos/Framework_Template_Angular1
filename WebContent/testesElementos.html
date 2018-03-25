@@ -1,0 +1,115 @@
+
+  <!DOCTYPE html >
+  <html ng-app="projetoEstudos" >
+    <head>
+    <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!-- 			visual -->
+		<link rel="stylesheet" type="text/css" href="/projetoEstudo/css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="/projetoEstudo/css/bootstrap-md.css" />
+		<link rel="stylesheet" type="text/css" href="/projetoEstudo/css/stylebmd.css" />
+        <link type="text/css" rel="stylesheet" href="/projetoEstudo/css/select.css" />
+		<link rel="stylesheet" type="text/css" href="/projetoEstudo/css/angular-material.css" />
+
+<style type="text/css">
+	
+</style>
+	 	 
+	<!-- 			JS Tela -->
+		<script src="/projetoEstudo/js/jquery-2.2.0.js" ></script>
+		<script src="/projetoEstudo/js/bootstrap.js" ></script>
+		<script type="text/javascript" src="/projetoEstudo/js/select.js"></script>
+		
+		<script src="/projetoEstudo/js/bootstrap-md.js" ></script>
+    	<link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
+	<!-- 			Objetos Angular -->
+		<script src="/projetoEstudo/js/angular.js" ></script>
+		<script src="/projetoEstudo/js/angular/app.js" ></script>
+		<script src="/projetoEstudo/js/angular-animate.js" ></script>
+		<script src="/projetoEstudo/js/angular/values/utilValue.js" ></script>
+		<script src="/projetoEstudo/js/angular/services/utilService.js" ></script>
+		<script src="/projetoEstudo/js/angular/directives/uiDirective.js" ></script>
+		<script src="/projetoEstudo/js/angular/controllers/usuarioCtrl.js" ></script>
+
+    <script type="text/javascript">
+     $(document).ready(function() {
+   	  });
+    </script>
+  <script type="text/javascript">    
+    
+  </script>
+    <title>Teste de novos elementos</title>
+    </head>
+   <body ng-controller="usuarioCtrl">
+    
+<!--     	Inicio Nav Bar ---------------------------------------------- -->
+<ui-navbar add-class="navbar-black" label="Estudos" img-logo="logo-title.png" url="/projetoEstudo/index.jsp">
+	<ui-menu-nav-left icon="menu" label="Menu Principal">
+		<ui-menu-link label="Cadastro 1" width="12" icon="description">
+			<ui-li-menu label="link 1" icon="face"></ui-li-menu>
+			<ui-li-menu label="link 2" icon="http"></ui-li-menu>
+			<ui-li-menu label="link 3" icon="launch"></ui-li-menu>
+				<ui-menu-link label="Sub Cadastro 1" width="12" icon="pan_tool">
+					<ui-li-menu label="link 1" icon="movie"></ui-li-menu>
+					<ui-li-menu label="link 2" icon="person"></ui-li-menu>
+					<ui-li-menu label="link 3" icon="radio"></ui-li-menu>
+				</ui-menu-link>
+				<ui-menu-link label="Sub Cadastro 1" width="12" icon="person">
+					<ui-li-menu label="link 1" icon="movie"></ui-li-menu>
+					<ui-li-menu label="link 2" icon="person"></ui-li-menu>
+					<ui-li-menu label="link 3" icon="radio"></ui-li-menu>
+				</ui-menu-link>
+				<ui-menu-link label="Sub Cadastro 1" width="12" icon="stop">
+					<ui-li-menu label="link 1" icon="movie"></ui-li-menu>
+					<ui-li-menu label="link 2" icon="person"></ui-li-menu>
+					<ui-li-menu label="link 3" icon="radio"></ui-li-menu>
+				</ui-menu-link>
+		</ui-menu-link>
+		<ui-menu-link label="Cadastro 1" width="12" icon="print">
+			<ui-li-menu label="link 1" icon="face"></ui-li-menu>
+			<ui-li-menu label="link 2" icon="http"></ui-li-menu>
+			<ui-li-menu label="link 3" icon="launch"></ui-li-menu>
+		</ui-menu-link>
+		<ui-link-menu icon="video_label" label="Página Index" url="/projetoEstudo/index.jsp"></ui-link-menu>
+	</ui-menu-nav-left>
+	
+	
+	<ui-linkdrop-nav-right icon="account_box">
+		<ui-li-drop icon="account_circle">Nome do Usuário</ui-li-drop>
+		<ui-li-drop icon="person">Editar Usuário</ui-li-drop>
+		<li role="separator" class="divider"></li>
+		<ui-li-drop icon="power_settings_new">Sair</ui-li-drop>
+	</ui-linkdrop-nav-right>
+	
+	<ui-menu-nav-right icon="search" min-width="50%">
+		<div class="">
+		<ui-input value="teste123" label="Nome" width="5" add-class="form-group-sm"></ui-input>
+		<ui-input value="teste1234" label="Sobre Nome" width="4" add-class="form-group-sm"></ui-input>
+		<ui-button  icon="search" add-class="btn-sm btn-primary float" width="3">Pesquisar 2</ui-button>
+		</div>
+	</ui-menu-nav-right>
+	<ui-badges >
+	</ui-badges>
+</ui-navbar>
+		<ui-toggle label-true="Ativo" label-false="Inativo" value="tipo" add-class="toggle-warning" width="4"></ui-toggle>
+	
+	<ui-paper>	
+		{{usuario.setor}}
+		<ui-radio  add-class="radio-primary" value="usuario.setor" name="Financeito" name-radio="setor" label="Financeiro" width="10"></ui-radio>
+		
+		<ui-radio  add-class="radio-success" value="usuario.setor" name="Diretoria" name-radio="setor" label="Diretoria" width="10"></ui-radio>
+		
+		<button type="button" class="btn btn-default" 
+						data-content="SnackBar mensagem" 
+						data-toggle="snackbar" data-timeout="0"> Show snackbar </button>
+		
+		<ui-snack-bar value="tipo" time-out-snack="1" label-snack="Inferior esquerdo"
+			 position="left-bottom" tipo-class="warning" 
+			 ui-mansagem="pardou-me, checkout one email for you" ></ui-snack-bar>
+		
+	</ui-paper>
+	
+ </body>    
+ </html>

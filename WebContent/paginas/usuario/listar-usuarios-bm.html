@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html ng-app="projetoEstudos">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Listar Usuários</title>
+<!-- 			visual -->
+			<link rel="stylesheet" type="text/css" href="/projetoEstudo/css/bootstrap.css" />
+			<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+			<link rel="stylesheet" type="text/css" href="/projetoEstudo/css/stylebmd.css" />
+			<link rel="stylesheet" type="text/css" href="/projetoEstudo/css/bootstrap-md.css" />
+			
+<!-- 			JS Tela -->
+			<script src="/projetoEstudo/js/jquery-2.2.0.js" ></script>
+			<script src="/projetoEstudo/js/bootstrap.js" ></script>
+			<script src="/projetoEstudo/js/bootstrap-md.js" ></script>
+			
+<!-- 			Objetos Angular -->
+			<script src="/projetoEstudo/js/angular.js" ></script>
+			<script src="/projetoEstudo/js/angular-material.js" ></script>
+			<script src="/projetoEstudo/js/angular-animate.js" ></script>
+			<script src="/projetoEstudo/js/angular-aria.js" ></script>
+			<script src="/projetoEstudo/js/angular/app.js" ></script>
+			<script src="/projetoEstudo/js/angular-animate.js" ></script>
+			<script src="/projetoEstudo/js/angular/values/utilValue.js" ></script>
+			<script src="/projetoEstudo/js/angular/services/utilService.js" ></script>
+			<script src="/projetoEstudo/js/angular/directives/uiDirective.js" ></script>
+			<script src="/projetoEstudo/js/angular/controllers/usuarioCtrl.js" ></script>
+
+			<script type="text/javascript">
+				$(document).ready(function(){
+				});
+			</script>
+	</head>
+<body ng-controller="usuarioCtrl">
+<!-- 	Inicio Nav Bar ---------------------------------------------- -->
+	<ui-navbar add-class="navbar-black" label="Estudos" img-logo="logo-title.png" url="/projetoEstudo/index.jsp">
+		<ui-menu-nav-left icon="menu" label="Menu Principal">
+			<ui-menu-link label="Cadastro 1" width="12" icon="description">
+				<ui-li-menu label="link 1" icon="face"></ui-li-menu>
+				<ui-li-menu label="link 2" icon="http"></ui-li-menu>
+				<ui-li-menu label="link 3" icon="launch"></ui-li-menu>
+					<ui-menu-link label="Sub Cadastro 1" width="12" icon="pan_tool">
+						<ui-li-menu label="link 1" icon="movie"></ui-li-menu>
+						<ui-li-menu label="link 2" icon="person"></ui-li-menu>
+						<ui-li-menu label="link 3" icon="radio"></ui-li-menu>
+					</ui-menu-link>
+					<ui-menu-link label="Sub Cadastro 1" width="12" icon="person">
+						<ui-li-menu label="link 1" icon="movie"></ui-li-menu>
+						<ui-li-menu label="link 2" icon="person"></ui-li-menu>
+						<ui-li-menu label="link 3" icon="radio"></ui-li-menu>
+					</ui-menu-link>
+					<ui-menu-link label="Sub Cadastro 1" width="12" icon="stop">
+						<ui-li-menu label="link 1" icon="movie"></ui-li-menu>
+						<ui-li-menu label="link 2" icon="person"></ui-li-menu>
+						<ui-li-menu label="link 3" icon="radio"></ui-li-menu>
+					</ui-menu-link>
+			</ui-menu-link>
+			<ui-menu-link label="Cadastro 1" width="12" icon="print">
+				<ui-li-menu label="link 1" icon="face"></ui-li-menu>
+				<ui-li-menu label="link 2" icon="http"></ui-li-menu>
+				<ui-li-menu label="link 3" icon="launch"></ui-li-menu>
+			</ui-menu-link>
+			<ui-link-menu icon="video_label" label="Página Index" url="/projetoEstudo/index.jsp"></ui-link-menu>
+		</ui-menu-nav-left>
+		
+		<ui-linkdrop-nav-right icon="account_box">
+			<ui-li-drop icon="account_circle">Nome do Usuário</ui-li-drop>
+			<ui-li-drop icon="person">Editar Usuário</ui-li-drop>
+			<li role="separator" class="divider"></li>
+			<ui-li-drop icon="power_settings_new">Sair</ui-li-drop>
+		</ui-linkdrop-nav-right>
+		
+		<ui-menu-nav-right icon="search" min-width="50%">
+			<div class="">
+			<ui-input value="teste123" label="Nome" width="5" add-class="form-group-sm"></ui-input>
+			<ui-input value="teste1234" label="Sobre Nome" width="4" add-class="form-group-sm"></ui-input>
+			<ui-button  icon="search" add-class="btn-sm btn-primary float" width="3">Pesquisar 2</ui-button>
+			</div>
+		</ui-menu-nav-right>
+	</ui-navbar>
+<!-- 		Fim do Nav BAR ---------------------------------------------------- -->
+
+	<div class="container-fluid">
+		<div class="col-sm-12">
+			
+			<ui-input value="filtro"></ui-input>
+			<table class="animate table  table-hover shadow-2 table-primary">
+				<thead>
+					<tr class="bg-black">
+						<th class="col20">Nome</th>
+						<th class="col20">Sobre Nome</th>
+						<th class="col15">Login</th>
+						<th class="col25 no-show-phone" >E-mail</th>
+						<th class="col10 text-center no-show-tablet">Data Nasc.</th>
+						<th class="col10 text-center ">AÃ§Ãµes</th>
+					</tr>
+				</thead>
+				<tbody id="body-usuario">
+					<tr class="animate" ng-repeat="usuario in usuarios | filter:filtro">
+						<td ng-bind="usuario.nome"></td>
+						<td ng-bind="usuario.sobreNome"></td>
+						<td ng-bind="usuario.login"></td>
+						<td class="no-show-phone" ng-bind="usuario.email" ng-bind="usuario.email"></td>
+						<td class="text-center no-show-tablet" ng-bind="usuario.dataNascimento"></td>
+						<td class="text-center">Em testes</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-sm-6 bs-docs-section shadow-2" style="padding:10px;">
+			<div class="" >
+				<form >
+					<fieldset>
+						<legend>Cadastro de UsuÃ¡rios</legend>
+					</fieldset>
+					<div class="form-group label-floating ">
+						<label class="control-label" >Nome do usuÃ¡rio</label>
+						<input class="form-control" type="text">
+					</div>
+					<div class="form-group form-info label-floating ">
+						<label class="control-label" >Sobre Nome do usuÃ¡rio</label>
+						<input class="form-control" type="text">
+					</div>
+					<div class="form-group form-warning label-floating ">
+						<label class="control-label" >Login do usuÃ¡rio</label>
+						<input class="form-control" type="text">
+					</div>
+					<div class="form-group form-inverse label-floating ">
+						<label class="control-label text-success" >E-Mail do usuÃ¡rio</label>
+						<input class="form-control" type="text">
+					</div>
+					<div class="form-group form-default label-floating ">
+						<label class="control-label " >Data Nascimento do usuÃ¡rio</label>
+						<input class="form-control " type="text">
+					</div>
+					<div class="form-group">
+						    <div class="togglebutton">
+							    <label>
+							    	Ativo <input type="checkbox" checked="checked" style="margin-left: 10px;"> 
+							    </label>
+						    </div>
+   					</div>
+   					<div class="form-group text-right">
+   						<button class="btn btn-danger ">
+   							<i class="material-icons">cancel</i> Cancelar
+   						</button>
+   						<button class="btn btn-default ">
+   							<i class="material-icons">add_box</i> Salvar
+   						</button>
+   					</div>
+				</form>
+			</div>
+		</div>
+		<div class="col-sm-12">
+			<a href="javascript:void(0)" class="btn btn-raised active"><code>.active</code></a>
+			<a href="javascript:void(0)" class="btn btn-raised btn-default">Default</a>
+			<a href="javascript:void(0)" class="btn btn-raised btn-inverse">inverse</a>
+			<a href="javascript:void(0)" class="btn btn-raised btn-primary">Primary</a>
+			<a href="javascript:void(0)" class="btn btn-raised btn-success">Success</a>
+			<a href="javascript:void(0)" class="btn btn-raised btn-info">Info</a>
+			<a href="javascript:void(0)" class="btn btn-raised btn-warning">Warning</a>
+			<a href="javascript:void(0)" class="btn btn-raised btn-danger">Danger</a>
+			<a href="javascript:void(0)" class="btn btn-raised btn-link">Link</a>
+			
+			<a href="javascript:void(0)" class="btn"><code>btn</code> only</a>
+			<a href="javascript:void(0)" class="btn active"><code>.active</code></a>
+			<a href="javascript:void(0)" class="btn btn-default">Default</a>
+			<a href="javascript:void(0)" class="btn btn-primary">Primary</a>
+			<a href="javascript:void(0)" class="btn btn-success">Success</a>
+			<a href="javascript:void(0)" class="btn btn-info">Info</a>
+			<a href="javascript:void(0)" class="btn btn-warning">Warning</a>
+			<a href="javascript:void(0)" class="btn btn-danger">Danger</a>
+			<a href="javascript:void(0)" class="btn btn-link">Link</a>
+		</div>
+		<div class="col-sm-12">
+			<div class="form-group">
+			    <div class="togglebutton">
+				    <label>
+				    	Ativo <input type="checkbox" checked="checked" style="margin-left: 10px;"> 
+				    </label>
+			    </div>
+			</div>
+				<div class="form-group">
+				    <div class="togglebutton toggle-success">
+					    <label>
+					    	Ativo <input type="checkbox" checked="checked" style="margin-left: 10px;"> 
+					    </label>
+				    </div>
+				</div>
+				<div class="form-group">
+				    <div class="togglebutton toggle-info">
+					    <label>
+					    	Ativo <input type="checkbox" checked="checked" style="margin-left: 10px;"> 
+					    </label>
+				    </div>
+				</div>
+				<div class="form-group">
+				    <div class="togglebutton toggle-warning">
+					    <label>
+					    	Ativo <input type="checkbox" checked="checked" style="margin-left: 10px;"> 
+					    </label>
+				    </div>
+				</div>
+				<div class="form-group">
+				    <div class="togglebutton toggle-danger">
+					    <label>
+					    	Ativo <input type="checkbox" checked="checked" style="margin-left: 10px;"> 
+					    </label>
+				    </div>
+				</div>
+				<div class="form-group">
+				    <div class="togglebutton toggle-default">
+					    <label>
+					    	Ativo <input type="checkbox" checked="checked" style="margin-left: 10px;"> 
+					    </label>
+				    </div>
+				</div>
+				<div class="form-group">
+				    <div class="togglebutton toggle-inverse">
+					    <label>
+					    	Ativo <input id="input-teste" type="checkbox" checked="checked" style="margin-left: 10px;"> 
+					    </label>
+				    </div>
+				</div>
+				
+<!-- 				<div class="form-group"> -->
+<!-- 			        <select  class="form-control"> -->
+<!-- 			          <option>1</option> -->
+<!-- 			          <option>2</option> -->
+<!-- 			          <option>3</option> -->
+<!-- 			          <option>4</option> -->
+<!-- 			          <option>5</option>
+<!-- 			        </select>--> 
+<!-- 			    </div>-->
+			</div>
+			<div class="col-sm-12">
+				<div class="form-group label-floating">
+				  <label class="control-label" ">Write something to make the label float</label>
+				  <input class="form-control"  type="text" value="{{tm}}">
+				</div>
+				{{usuario}}
+			</div>
+			<ui-paper width="12">
+				<ui-form name="formUsuario">
+					<div class="col-sm-12">
+						<h4>form-group  normal</h4>
+						<ui-input label="Informe a data" value="usuario.data" type="text" add-class="form-danger" width="2" not-empty="true" mask-date="true" valid-date="true" date-picker="true"> </ui-input>
+						<ui-input label="Hora" value="usuario.hora" type="text" add-class="form-primary" width="2" not-empty="true" mask-clock="true" valid-clock="true" clock-picker="true"> </ui-input>
+						<ui-input label="CPF" value="usuario.cpf" type="text" add-class="form-primary" width="2" not-empty="true" mask-cpf="true" valid-cpf="true"> </ui-input>
+						<ui-input label="CNPJ" value="usuario.cnpj" type="text" add-class="form-primary" width="2" not-empty="true" mask-cnpj="true" valid-cnpj="true"> </ui-input>
+						<ui-input label="numeros" value="usuario.numeros" type="text" add-class="form-primary" width="2" not-empty="true" valid-number="true" > </ui-input>
+						<ui-input label="numeros" value="usuario.num" type="text" add-class="form-primary" width="2" not-empty="true" mask-number="true" > </ui-input>
+					</div>
+					<div class="col-sm-12">
+						<ui-input label="CEP" value="usuario.cep" type="text" add-class="form-warning" width="2" not-empty="true" mask-cep="true"> </ui-input>
+						<ui-input label="E-Mail" value="usuario.email" type="text" add-class="form-warning" width="4" not-empty="true" valid-email="true"> </ui-input>
+					</div>
+				</ui-form>
+			</ui-paper>
+			
+			<ui-paper width="12">
+				<ui-form name="form1">
+					<div class="col-sm-12">
+						<h4>form-group  SM</h4>
+						<ui-input label="Hora" value="usuario.hora" type="text" add-class="form-info form-group-sm" width="2" not-empty="true" mask-clock="true" valid-clock="true" clock-picker="true"> </ui-input>
+						<ui-input label="CPF" value="usuario.cpf" type="text" add-class="form-inverse form-group-sm" width="2" not-empty="true" mask-cpf="true" valid-cpf="true"> </ui-input>
+						<ui-input label="CNPJ" value="usuario.cnpj" type="text" add-class="form-warning form-group-sm" width="2" not-empty="true" mask-cnpj="true" valid-cnpj="true"> </ui-input>
+						<ui-input label="numeros" value="usuario.numeros" type="text" add-class="form-primary form-group-sm" width="2" not-empty="true" valid-number="true" > </ui-input>
+						<ui-input label="numeros" value="usuario.num" type="text" add-class="form-primary form-group-sm" width="2" not-empty="true" mask-number="true" > </ui-input>
+					</div>
+					<div class="col-sm-12">
+						<ui-input label="Informe a data" value="usuario.data" type="text" add-class="form-info form-group-sm" width="2" not-empty="true" mask-date="true" valid-date="true" date-picker="true"> </ui-input>
+						<ui-input label="CEP" value="usuario.cep" type="text" add-class="form-success form-group-sm" width="2" not-empty="true" mask-cep="true"> </ui-input>
+						<ui-input label="E-Mail" value="usuario.email" type="text" add-class="form-success form-group-sm" width="4" not-empty="true" valid-email="true"> </ui-input>
+					</div>
+				</ui-form>
+			</ui-paper>
+			<ui-paper width="12">
+				<ui-form name="form2">
+					<div class="col-sm-12">
+						<h4>form-group  LG</h4>
+						<ui-input label="Informe a data" value="usuario.data" type="text" add-class="form-danger form-group-lg" width="2" not-empty="true" mask-date="true" valid-date="true" date-picker="true"> </ui-input>
+						<ui-input label="Hora" value="usuario.hora" type="text" add-class="form-danger form-group-lg" width="2" not-empty="true" mask-clock="true" valid-clock="true" clock-picker="true"> </ui-input>
+						<ui-input label="CPF" value="usuario.cpf" type="text" add-class="form-danger form-group-lg" width="2" not-empty="true" mask-cpf="true" valid-cpf="true"> </ui-input>
+						<ui-input label="CNPJ" value="usuario.cnpj" type="text" add-class="form-info form-group-lg" width="2" not-empty="true" mask-cnpj="true" valid-cnpj="true"> </ui-input>
+						<ui-input label="numeros" value="usuario.numeros" type="text" add-class="form-inverse form-group-lg" width="2" not-empty="true" valid-number="true" > </ui-input>
+						<ui-input label="numeros" value="usuario.num" type="text" add-class="form-inverse form-group-lg" width="2" not-empty="true" mask-number="true" > </ui-input>
+					</div>
+					<div class="col-sm-12">
+						<ui-input label="CEP" value="usuario.cep" type="text" add-class="form-success form-group-lg" width="2" not-empty="true" mask-cep="true"> </ui-input>
+						<ui-input label="E-Mail" value="usuario.email" type="text" add-class="form-success form-group-lg" width="4" not-empty="true" valid-email="true"> </ui-input>
+					</div>
+				</ui-form>
+			</ui-paper>
+			<ui-paper width="12">
+				<ui-form name="form3">
+					<div class="col-sm-12">
+						<h4>Impu sm float normal </h4>
+						<ui-input placeholder="Informe a data" value="usuario.data" type="text" add-class="form-primary" width="2" not-empty="true" mask-date="true" valid-date="true" date-picker="true"> </ui-input>
+						<ui-input placeholder="Hora" value="usuario.hora" type="text" add-class="form-primary" width="2" not-empty="true" mask-clock="true" valid-clock="true" clock-picker="true"> </ui-input>
+						<ui-input placeholder="CPF" value="usuario.cpf" type="text" add-class="form-primary" width="2" not-empty="true" mask-cpf="true" valid-cpf="true"> </ui-input>
+						<ui-input placeholder="CNPJ" value="usuario.cnpj" type="text" add-class="form-primary" width="2" not-empty="true" mask-cnpj="true" valid-cnpj="true"> </ui-input>
+						<ui-input placeholder="numeros" value="usuario.numeros" type="text" add-class="form-primary" width="2" not-empty="true" valid-number="true" > </ui-input>
+						<ui-input placeholder="numeros" value="usuario.num" type="text" add-class="form-primary" width="2" not-empty="true" mask-number="true" > </ui-input>
+					</div>
+					<div class="col-sm-12">
+						<ui-input placeholder="CEP" value="usuario.cep" type="text" add-class="form-primary" width="2" not-empty="true" mask-cep="true"> </ui-input>
+						<ui-input placeholder="E-Mail" value="usuario.email" type="text" add-class="form-primary" width="4" not-empty="true" valid-email="true"> </ui-input>
+					</div>
+				</ui-form>
+			</ui-paper>
+			<ui-paper width="12">
+				<ui-form name="form3">
+					<div class="col-sm-12">
+						<h4>Impu sem float SM </h4>
+						<ui-input placeholder="Informe a data" value="usuario.data" type="text" add-class="form-primary form-group-sm" width="2" not-empty="true" mask-date="true" valid-date="true" date-picker="true"> </ui-input>
+						<ui-input placeholder="Hora" value="usuario.hora" type="text" add-class="form-primary form-group-sm" width="2" not-empty="true" mask-clock="true" valid-clock="true" clock-picker="true"> </ui-input>
+						<ui-input placeholder="CPF" value="usuario.cpf" type="text" add-class="form-primary form-group-sm" width="2" not-empty="true" mask-cpf="true" valid-cpf="true"> </ui-input>
+						<ui-input placeholder="CNPJ" value="usuario.cnpj" type="text" add-class="form-primary form-group-sm" width="2" not-empty="true" mask-cnpj="true" valid-cnpj="true"> </ui-input>
+						<ui-input placeholder="numeros" value="usuario.numeros" type="text" add-class="form-primary form-group-sm" width="2" not-empty="true" valid-number="true" > </ui-input>
+						<ui-input placeholder="numeros" value="usuario.num" type="text" add-class="form-primary form-group-sm" width="2" not-empty="true" mask-number="true" > </ui-input>
+					</div>
+				</ui-form>
+			</ui-paper>
+			<ui-paper width="12">
+				<ui-form name="form3">
+					<div class="col-sm-12">
+						<h4>Impu sem float LG </h4>
+						<ui-input placeholder="Informe a data" value="usuario.data" type="text" add-class="form-primary form-group-lg" width="2" not-empty="true" mask-date="true" valid-date="true" date-picker="true"> </ui-input>
+						<ui-input placeholder="Hora" value="usuario.hora" type="text" add-class="form-primary form-group-lg" width="2" not-empty="true" mask-clock="true" valid-clock="true" clock-picker="true"> </ui-input>
+						<ui-input placeholder="CPF" value="usuario.cpf" type="text" add-class="form-primary form-group-lg" width="2" not-empty="true" mask-cpf="true" valid-cpf="true"> </ui-input>
+						<ui-input placeholder="CNPJ" value="usuario.cnpj" type="text" add-class="form-primary form-group-lg" width="2" not-empty="true" mask-cnpj="true" valid-cnpj="true"> </ui-input>
+						<ui-input placeholder="numeros" value="usuario.numeros" type="text" add-class="form-primary form-group-lg" width="2" not-empty="true" valid-number="true" > </ui-input>
+						<ui-input placeholder="numeros" value="usuario.num" type="text" add-class="form-primary form-group-lg" width="2" not-empty="true" mask-number="true" > </ui-input>
+					</div>
+				</ui-form>
+			</ui-paper>
+			<div class="col-sm-12">
+				<ui-button type="button" add-class=" btn-primary" ng-click="clicou()" icon="done" >
+					OK
+				 </ui-button>
+			</div>
+
+			<div class="col-sm-12">
+				<button type="button" class="btn btn-default" 
+						data-content="SnackBar mensagem" 
+						data-toggle="snackbar" data-timeout="0"> Show snackbar </button>
+
+				<button type="button" class="btn btn-default" data-style="toast" data-content="This is a toast! Lorem lipsum dolor sit amet..." data-toggle="snackbar" data-timeout="0">Show toast</button>
+			</div>
+			<div class="col-sm-12">
+				<ui-toggle label-true="Ativo" label-false="Inativo" value="tipo" add-class="toggle-warning" width="4"></ui-toggle>
+				<form ui-form name="formTeste" action="">
+					<ui-paper width="12">
+						<div class="col-sm-12">
+							<ui-input width="3" value="testeNome" not-empty="true" valid-min="4" mask-max="10" placeholder="Nome"></ui-input>
+							<ui-input width="3" value="testeEmail" not-empty="true" valid-email="true" placeholder="E-Mail"></ui-input>
+							<ui-input width="2" value="testeCPF" not-empty="true" mask-cpf="true" valid-cpf="true" placeholder="CPF"></ui-input>
+							<ui-input width="2" value="testeCep" not-empty="true" mask-cep="true" valid-cep="true" placeholder="CEP"></ui-input>
+							<ui-button icon="check" add-class="btn-primary"  type="button" valid-form="true">
+								Salvar
+							</ui-button>
+						</div>
+					</ui-paper>
+				</form>
+			</div>
+	<ui-paper width="12">		
+		<div class="col-sm-12">
+			<ui-snack-bar value="tipo" time-out-snack="1" position="center-bottom"  ui-mansagem="pardou-me, checkout one email for you" ></ui-snack-bar>
+		</div>	
+			
+		<div class="col-sm-12">
+			<ui-snack-bar value="tipo" time-out-snack="1" position="center-bottom"  label-snack="Primary" tipo-class="primary" ui-mansagem="scuse-me, checkout one email for you" ></ui-snack-bar>
+		</div>
+		
+		<div class="col-sm-12">
+			<ui-snack-bar value="tipo" time-out-sna ck="1" position="center-bottom"  label-snack="Success" tipo-class="success" ui-mansagem="scuse-me, checkout one email for you" ></ui-snack-bar>
+		</div>
+		
+		<div class="col-sm-12">
+			<ui-snack-bar value="tipo" time-out-snack="1" position="center-bottom"  label-snack="Info" tipo-class="info" ui-mansagem="pardou-me, checkout one email for you" ></ui-snack-bar>
+		</div>
+		
+		<div class="col-sm-12">
+			<ui-snack-bar value="tipo" time-out-snack="1" position="center-bottom"  label-snack="warning" tipo-class="warning" ui-mansagem="pardou-me, checkout one email for you" ></ui-snack-bar>
+		</div>
+		
+		<div class="col-sm-12">
+			<ui-snack-bar value="tipo" time-out-snack="1" position="center-bottom"  label-snack="Danger" tipo-class="danger" ui-mansagem="pardou-me, checkout one email for you" ></ui-snack-bar>
+		</div>
+		
+		<div class="col-sm-12">
+			<ui-snack-bar value="tipo" time-out-snack="1" position="center-bottom"  label-snack="Default" tipo-class="default" ui-mansagem="pardou-me, checkout one email for you" ></ui-snack-bar>
+		</div>
+		
+		<div class="col-sm-12">
+			<ui-snack-bar value="tipo" time-out-snack="1" position="center-bottom"  label-snack="Inverse" tipo-class="inverse" ui-mansagem="pardou-me, checkout one email for you" ></ui-snack-bar>
+		</div>
+</ui-paper>
+      <label class="col-md-2 control-label">Radios</label>
+	  <ui-paper width="12">
+	  {{usuario.setor}}	
+		<div class="col-sm-12">
+			<ui-radio  add-class="radio-primary" tipo=" " value="Financeito" name-radio="setor" label="Financeiro" width="10"></ui-radio>
+			<ui-radio  add-class="radio-success" tipo="usuario.setor" value="Almoxerifado" name-radio="setor" label="Almoxerifado" width="10"></ui-radio>
+			<ui-radio  add-class="radio-info" tipo="usuario.setor" value="Contas Pagar" name-radio="setor" label="Contas Pagar" width="10"></ui-radio>
+			<ui-radio  add-class="radio-warning" tipo="usuario.setor" value="Contas Receber" name-radio="setor" label="Contas Receber" width="10"></ui-radio>
+			<ui-radio  add-class="radio-danger" tipo="usuario.setor" value="Vendas" name-radio="setor" label="Vendas" width="10"></ui-radio>
+			<ui-radio  add-class="radio-default" tipo="usuario.setor" value="Diretoria" name-radio="setor" label="Diretoria" width="10"></ui-radio>
+			<ui-radio  add-class="radio-inverse" tipo="usuario.setor" value="Gerencia" name-radio="setor" label="Gerencia" width="10"></ui-radio>
+		</div>
+	  </ui-paper>
+	  
+	  <ui-paper width="12">
+		 <div class="col-sm-12">
+		  	{{usuario.filial}}
+	 		<ui-select class-image="image_item_right" alt-image="Perfil atualizado" url-image="https://image.freepik.com/psd-gratis/substituicao-de-abertura-icone-psd_29-347.jpg" add-class="" label="Filial" name-select="selectFilial" value="usuario.filial" width="10" label-option="Selecione a Filial" list="usuario.listFilial" ></ui-select> 
+		 </div>	
+	 
+	 <div class="col-sm-12">
+		<ui-snack-bar value="tipo" time-out-snack="1" label-snack="Superior direito" position="right-top" tipo-class="warning" ui-mansagem="pardou-me, checkout one email for you" ></ui-snack-bar>
+	
+		<ui-snack-bar value="tipo" time-out-snack="1" label-snack="Inferior direito" position="right-bottom" tipo-class="warning" ui-mansagem="pardou-me, checkout one email for you" ></ui-snack-bar>
+
+		<ui-snack-bar value="tipo" time-out-snack="1" label-snack="Superior esquerdo" position="left-top" tipo-class="warning" ui-mansagem="pardou-me, checkout one email for you" ></ui-snack-bar>
+
+		<ui-snack-bar value="tipo" time-out-snack="1" label-snack="Inferior esquerdo" position="left-bottom" tipo-class="warning" ui-mansagem="pardou-me, checkout one email for you" ></ui-snack-bar>
+ 	 </div>
+	 
+	  </ui-paper>
+	 
+	</body>
+</html>

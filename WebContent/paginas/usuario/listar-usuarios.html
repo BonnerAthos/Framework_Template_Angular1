@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html ng-app="projetoEstudos">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Listar Usuários</title>
+	<!-- 			visual -->
+		<link rel="stylesheet" type="text/css" href="/projetoEstudo/css/bootstrap.css" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" type="text/css" href="/projetoEstudo/css/bootstrap-md.css" />
+		<link rel="stylesheet" type="text/css" href="/projetoEstudo/css/stylebmd.css" />
+<!-- 			JS Tela -->
+		<script src="/projetoEstudo/js/jquery-2.2.0.js" ></script>
+		<script src="/projetoEstudo/js/bootstrap.js" ></script>
+		<script src="/projetoEstudo/js/bootstrap-md.js" ></script>
+<!-- 			Objetos Angular -->
+		<script src="/projetoEstudo/js/angular.js" ></script>
+		<script src="/projetoEstudo/js/angular/app.js" ></script>
+		<script src="/projetoEstudo/js/angular-animate.js" ></script>
+		<script src="/projetoEstudo/js/angular/values/utilValue.js" ></script>
+		<script src="/projetoEstudo/js/angular/services/utilService.js" ></script>
+		<script src="/projetoEstudo/js/angular/directives/uiDirective.js" ></script>
+		<script src="/projetoEstudo/js/angular/controllers/usuarioCtrl.js" ></script>
+	</head>
+<body ng-controller="usuarioCtrl">
+	<!-- 	NavBar -->
+	<ui-navbar add-class="navbar-black" label="Estudos" img-logo="logo-title.png" url="/projetoEstudo/index.jsp">
+		<ui-menu-nav-left icon="menu" label="Menu Principal">
+			<ui-link-menu icon="video_label" label="Página Index" url="/projetoEstudo/index.html"></ui-link-menu>
+		</ui-menu-nav-left>
+		
+		
+		<ui-linkdrop-nav-right icon="account_box">
+			<ui-li-drop >Nome do Usuário</ui-li-drop>
+			<ui-li-drop >Editar Usuário</ui-li-drop>
+			<li role="separator" class="divider"></li>
+			<ui-li-drop icon="power_settings_new">Sair</ui-li-drop>
+		</ui-linkdrop-nav-right>
+		
+		<ui-menu-notification icon="account_box"  badges="233">
+			<ui-li-drop icon="account_circle">Usuario fulando de tal foi adicionadoNome do Usuário</ui-li-drop>
+		</ui-menu-notification>
+		
+		<ui-menu-nav-right icon="search" min-width="70%">
+			<div class="container-fluid">
+				<h4>Filtros Usuário</h4>
+				<ui-input value="usuarioPesq.nome" label="Nome" width="4"></ui-input>
+				<ui-input value="usuarioPesq.sobreNome" label="Sobre Nome" width="4" ></ui-input>
+				<ui-input value="usuarioPesq.login" label="Login" width="4" ></ui-input>
+				<ui-input value="usuarioPesq.email" label="E-Mail" width="4" ></ui-input>
+				<ui-input value="usuarioPesq.dataFiltroInicio" label="Data Início" width="2"  date-picker="true" mask-date="true" ></ui-input>
+				<ui-input value="usuarioPesq.dataFiltroFim" label="Data Fim" width="2"  date-picker="true" mask-date="true" ></ui-input>
+				<ui-button  icon="search" add-class="float" width="2" ng-click="carregarUsuario();">Pesquisar</ui-button>
+				<ui-button  icon="clear_all" add-class="float"  width="2" ng-click="limparFiltrosUsuario();">Limpar</ui-button>
+			</div>
+		</ui-menu-nav-right>
+	</ui-navbar>
+	
+		<div class="container-fluid">
+			<ui-table loading="loadTable" data="retornoTabelaUsuario"  obj-filter="usuarioPesq" 
+				on-delete="confirmarExcluirUsuario" on-edit="iniciarEditarUsuario" on-load="carregarUsuario">
+				<ui-tr-thead order-by="true" add-class="col-20 " field="nome">Nome</ui-tr-thead>
+				<ui-tr-thead order-by="true" add-class="col-20" field="sobreNome" >Sobre Nome</ui-tr-thead>
+				<ui-tr-thead order-by="true" add-class="col-15" field="login" >Login</ui-tr-thead>
+				<ui-tr-thead order-by="true" add-class="col-25 no-show-phone" field="email" >E-Mail</ui-tr-thead>
+				<ui-tr-thead order-by="true" add-class="col-10 no-show-tablet text-center"  field="dataNascimento" >Dt. Nasc</ui-tr-thead>
+				<ui-tr-thead  is-action="true" label-tooltip-edit="Editar Usuário" label-tooltip-delete="Exluir Usuário" 
+					add-class="col-10 text-center" >Ações</ui-tr-thead>
+			</ui-table>
+		</div>
+		<ui-button add-class="btn-fab btn-raised btn-default" tooltip="left" 
+			title-tooltip="Novo Usuário" float="right-bottom"  icon="add" ng-click="novoUsuario();;"></ui-button>
+<!-- 		<ui-button ng-click="enviarMsg()">Enviar MSG</ui-button> -->
+	</div>
+	
+	
+</body>
+</html>

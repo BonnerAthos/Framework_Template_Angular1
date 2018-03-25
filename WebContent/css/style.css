@@ -1,0 +1,9 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	min-height: 95%
+}
+
+.mdl-data-table th {
+	font-weight: bold;
+}

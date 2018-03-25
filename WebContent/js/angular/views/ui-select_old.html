@@ -1,0 +1,13 @@
+<div class="form-group {{addClass}}">
+	<div class="col-sm-12">
+		<div class="textfield">
+		<label class="col-md-{{width}} control-label"><H4>{{label}}</H4></label>
+			<input class="textfield__input" type="text" ng-model="value" id="{{nameSelect}}" value="{{labelOption}}">
+			<div class="textfield__label"></div>
+			<ul for="{{nameSelect}}" class="menu-select">
+				<li class="menu__item" ng-value="item" ng-repeat="item in list"><small class="text-select">{{item.descricao}}</small>
+				<img id="image-1" class="{{classImage}}" alt="{{altImage}}" src="{{urlImage}}" /></li>
+			</ul>
+		</div>
+	</div>
+</div>

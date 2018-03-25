@@ -1,0 +1,11 @@
+<div class="col-sm-{{::width}}">
+	<div class="form-group {{::notFloat}} {{::addClass}} label-floating  {{empty}}">
+	  <div class="input-group" style="width: 100%">
+	      <span ng-if="::iconBefore" class="input-group-addon"><i class="material-icons">{{::iconBefore}}</i></span>
+		  <label class="control-label" ng-if="label">{{label}}</label>
+		  <input class="form-control"  type="{{::type}}"  ng-model="value" ng-blur="onBlur();" placeholder="{{placeholder}}">
+		  <span class="help-block text-danger animate" ng-if="showErro">{{msgInput}}</span>
+	      <span ng-if="::iconAfter" class="input-group-addon"><i class="material-icons">{{::iconAfter}}</i></span>
+	 </div>
+	</div>
+</div>

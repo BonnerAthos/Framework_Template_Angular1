@@ -1,0 +1,1 @@
+angular.module("projetoEstudos",["ngAnimate","utilService", "utilValue", "uiDirective"]); 

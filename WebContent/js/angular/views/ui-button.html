@@ -1,0 +1,15 @@
+<span>
+	<button ng-if="::!link" id="btn-{{::$id}}" class="animate btn {{::addClass}} col-sm-{{::width}}" type="{{::type}}"  
+		ng-disabled="btnDisabled || isFormValid()" ng-mousedown="showListMsg();">
+		<i nf-if="::icon" class="material-icons">{{::icon}}</i>
+		<span ng-transclude></span>
+		<div ng-if="badges" class="badges">{{badges}}</div>
+	</button>
+	
+	<a href="{{::link}}" ng-if="::link" id="btn-{{::$id}}" class="animate btn {{::addClass}} col-sm-{{::width}}" type="{{::type}}"  
+		ng-disabled="btnDisabled || isFormValid()" ng-mouseup="showListMsg();">
+		<i nf-if="::icon" class="material-icons">{{::icon}}</i>
+		<span ng-transclude></span>
+		<div ng-if="badges" class="badges">{{badges}}</div>
+	</a>
+</span>

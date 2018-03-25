@@ -1,0 +1,53 @@
+<div>
+<table class="table  table-hover shadow-2 {{::addClass}}" >
+	<thead>
+		<tr class="bg-black" ng-transclude>
+		</tr>
+	</thead>
+	<thead ng-if="loading" >
+		<tr class="head-loading">
+			<th colspan="{{::fields.length}}" >
+				<div class="table-loading">
+					<ui-loading-line></ui-loading-line>
+				</div>
+			</th>
+		</tr>
+	</thead>
+	<tbody  >
+		<tr  ng-repeat="item in data.listaBeans " >
+			<td ng-repeat="field in fields" class=" col-sm-{{::field.width}} {{::field.addClass}}" >
+			 	{{::item[field.field]}} 
+			 	<span ng-if="::field.isAction">
+				 	<ui-button  ng-if="::onEdit;"  icon="edit" ng-click="editClick(item);" tooltip="top" title-tooltip="{{::field.labelTooltipEdit}}">{{::field.labelBtnEdit}}</ui-button>
+				 	<ui-button ng-if="::onDelete" icon="delete" ng-click="deleteClick(item);" tooltip="top" title-tooltip="{{::field.labelTooltipDelete}}">{{::field.labelBtnDelete}}</ui-button>
+			 	</span>
+			 </td>
+		</tr>
+		<thead>
+			<tr class="head-add">
+				<th colspan="{{fields.length}}" >
+					<div class="table-pagination col-100" >
+						<span ng-if="::pagination" class="">
+							<ui-button type="button" btn-disabled="lastShow" add-class="btn-sm " icon="last_page" ng-click="clickButton('last');"></ui-button>
+							<ui-button type="button" btn-disabled="rightShow" add-class="btn-sm " icon="chevron_right" ng-click="clickButton('right');"></ui-button>
+							<ui-button type="button" btn-disabled="leftShow" add-class="btn-sm " icon="chevron_left" ng-click="clickButton('left');"></ui-button>
+							<ui-button type="button" btn-disabled="firstShow" add-class="btn-sm "  icon="first_page" ng-click="clickButton('first');"></ui-button>
+						</span>
+						<span class="">
+							<ui-button ng-if="::onLoad" add-class="btn-sm" icon="refresh"  ng-click="clickButton('reflesh');"></ui-button>
+						</span>
+						<span class="">{{pageInfo}}</span>
+						<span ng-if="::pagination" style="max-width: 7em;">
+								<ui-select width="0" func-click="changeSelect" add-class="form-group-sm col-100 form-group-sm"  
+								value="rowPageSelected"  list="listRowPages" field="text" not-diselected="true"></ui-select>
+						</span>
+						<span ng-if="::pagination" class="text-left">
+							{{rowPages}}
+						</span>
+					</div>
+				</th>
+			</tr>
+		</thead>
+	</tbody>
+</table>
+</div>

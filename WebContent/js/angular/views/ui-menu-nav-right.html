@@ -1,0 +1,10 @@
+<div class="animate">
+	<input id="{{$id}}btn-check" type="radio" name="nav-right" class="nav-radio-right">
+	<label  for="{{$id}}btn-check" class="btn btn-radio-right">
+		<span class="material-icons">{{icon}}</span>
+		<div ng-if="badges" class="badges">{{badges}}</div>
+	</label>
+	<button class="btn btn-default btn-closed-nav-right" id="btn-close-nav-right{{$id}}">X</button>
+	<label class="nav-right-container " style="min-width:{{minWidth}};max-width:{{minWidth}};" ng-transclude>
+	</label>
+</div>

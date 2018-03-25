@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html ng-app="projetoEstudos">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Slide Bar</title>
+<!-- 			visual -->
+		<link rel="stylesheet" type="text/css" href="/projetoEstudo/css/bootstrap.css" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" type="text/css" href="/projetoEstudo/css/bootstrap-md.css" />
+		<link rel="stylesheet" type="text/css" href="/projetoEstudo/css/stylebmd.css" />
+<!-- 			JS Tela -->
+		<script src="/projetoEstudo/js/jquery-2.2.0.js" ></script>
+		<script src="/projetoEstudo/js/bootstrap.js" ></script>
+		<script src="/projetoEstudo/js/bootstrap-md.js" ></script>
+<!-- 			Objetos Angular -->
+		<script src="/projetoEstudo/js/angular.js" ></script>
+		<script src="/projetoEstudo/js/angular/app.js" ></script>
+		<script src="/projetoEstudo/js/angular-animate.js" ></script>
+		<script src="/projetoEstudo/js/angular/values/utilValue.js" ></script>
+		<script src="/projetoEstudo/js/angular/services/utilService.js" ></script>
+		<script src="/projetoEstudo/js/angular/directives/uiDirective.js" ></script>
+		<script src="/projetoEstudo/js/angular/controllers/usuarioCtrl.js" ></script>
+		<script type="text/javascript">
+		</script>
+</head>
+<body ng-controller="usuarioCtrl">
+<!-- 	NavBar -->
+	<ui-navbar add-class="navbar-black" label="Estudos" img-logo="logo-title.png" url="/projetoEstudo/index.jsp">
+		<ui-menu-nav-left icon="menu" label="Menu Principal">
+			<ui-link-menu icon="video_label" label="Página Index" url="/projetoEstudo/index.jsp"></ui-link-menu>
+		</ui-menu-nav-left>
+		
+		<ui-linkdrop-nav-right icon="account_box">
+			<ui-li-drop icon="account_circle">Nome do Usuário</ui-li-drop>
+			<ui-li-drop icon="person">Editar Usuário</ui-li-drop>
+			<li role="separator" class="divider"></li>
+			<ui-li-drop icon="power_settings_new">Sair</ui-li-drop>
+		</ui-linkdrop-nav-right>
+		
+		<ui-menu-nav-right icon="search" min-width="70%">
+			<div class="container-fluid">
+				<h3>Filtros Usuário</h3>
+				<ui-input value="usuarioPesq.nome" label="Nome" width="4"></ui-input>
+				<ui-input value="usuarioPesq.sobreNome" label="Sobre Nome" width="4" ></ui-input>
+				<ui-input value="usuarioPesq.login" label="Login" width="4" ></ui-input>
+				<ui-input value="usuarioPesq.email" label="E-Mail" width="4" ></ui-input>
+				<ui-input value="usuarioPesq.dataFiltroInicio" label="Data Início" width="2"  date-picker="true" mask-date="true" ></ui-input>
+				<ui-input value="usuarioPesq.dataFiltroFim" label="Data Fim" width="2"  date-picker="true" mask-date="true" ></ui-input>
+				<ui-button  icon="search" add-class="float" width="2" ng-click="carregarUsuario();">Pesquisar</ui-button>
+				<ui-button  icon="clear_all" add-class="float"  width="2" ng-click="limparFiltrosUsuario();">Limpar</ui-button>
+			</div>
+		</ui-menu-nav-right>
+	</ui-navbar>
+	<div class="container-fluuid">
+		<br><br>
+	
+		<br><br>
+		<ui-paper>
+			<ui-input icon-before="alarm" label="Hora" value="usuario.hora" type="text" width="2" not-empty="true" mask-clock="true" valid-clock="true" clock-picker="true"> </ui-input>
+			<ui-input icon-before="alarm" label="Hora" value="usuario.hora" type="text" add-class="form-danger" width="2" not-empty="true" mask-clock="true" valid-clock="true" clock-picker="true"> </ui-input>
+			<ui-input icon-before="date_range" label="Data" value="usuario.data" type="text" add-class="form-primary" width="2" not-empty="true" mask-date="true" valid-date="true" date-picker="true"> </ui-input>
+			<ui-select icon-before="home" is-filter="true" add-class="form-danger" not-empty="false" width="4" list="filiais" value="selecionado" label="Filiais 1" field="nome"></ui-select>
+		</ui-paper>	
+		<ui-paper>
+			<ui-input icon-after="alarm" label="Hora" value="usuario.hora" type="text" add-class="form-primary form-group-sm" width="2" not-empty="true" mask-clock="true" valid-clock="true" clock-picker="true"> </ui-input>
+			<ui-input icon-after="date_range" label="Data" value="usuario.data" type="text" add-class="form-primary form-group-sm" width="2" not-empty="true" mask-date="true" valid-date="true" date-picker="true"> </ui-input>
+			<ui-select icon-before="home" is-filter="true" add-class="form-danger form-group-sm" not-empty="false" width="4" list="filiais" value="selecionado" label="Filiais 1" field="nome"></ui-select>
+		</ui-paper>	
+		<br><br>
+		<br><br>
+		<br><br>
+		<br><br>
+		<br><br><br><br>
+		<br><br>
+		<br><br>
+		<br><br>
+		<br><br>
+	</div>
+</body>
+</html>

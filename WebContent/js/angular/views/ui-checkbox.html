@@ -1,0 +1,22 @@
+<div ng-show="single">
+	<div class="col-sm-{{::width}}">
+		<div class="{{::addClass}}">
+		     <label>
+				<input type="checkbox" class="css-checkbox" id="{{nameCheck}}" name="{{nameCheck}}"  ng-model="value" ng-checked="" ng-click="" >
+			 	<label for="{{nameCheck}}" >{{label}}</label>
+		     </label>
+	    </div>
+	</div>
+</div>
+<div ng-show="multiple">
+	<div class="col-sm-{{::width}}">
+		<div class="{{::addClass}}">
+	      <div ng-repeat="item in list">
+	        <label>
+				<input type="checkbox" ng-model="value" class="css-checkbox" id="ui-label{{item.id}}" ng-checked="isExiste(item.id, selected)" ng-click="addItem(item.id, selected)" >
+				<label class="" for="ui-label{{item.id}}" >{{item.name}}</label>
+	        </label>
+	      </div>
+	    </div>
+	</div>
+</div>
